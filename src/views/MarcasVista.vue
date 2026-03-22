@@ -90,18 +90,13 @@ onMounted(() => {
         <tr>
           <th>Nombre</th>
           <th>País de origen</th>
-          <th>Año fundación</th>
+          <th>Año de fundación</th>
           <th>Precio medio (€/día)</th>
         </tr>
       </thead>
       <tbody>
-        <tr
-          v-for="marca in marcasOrdenadas"
-          :key="marca.id"
-          @click="seleccionarMarca(marca.id)"
-          :class="{ 'fila-seleccionada': idMarcaSeleccionada === marca.id }"
-          class="fila-clickable"
-        >
+        <tr v-for="marca in marcasOrdenadas" :key="marca.id" @click="seleccionarMarca(marca.id)"
+          :class="{ 'fila-seleccionada': idMarcaSeleccionada === marca.id }" class="fila-clickable">
           <td>{{ marca.nombre }}</td>
           <td>{{ marca.origen }}</td>
           <td>{{ marca.anioFundacion }}</td>

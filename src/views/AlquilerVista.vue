@@ -33,7 +33,7 @@ const cargarDatos = () => {
       listaClientes.value = clientes
     })
     .catch(error => {
-      console.error('Error al cargar datos:', error)
+      console.error('Error al cargar los datos:', error)
     })
 }
 
@@ -177,11 +177,7 @@ onMounted(() => {
         <label for="alqMarca">Marca</label>
         <select id="alqMarca" v-model="idMarcaSeleccionada">
           <option value="" disabled>Selecciona una marca</option>
-          <option
-            v-for="marca in listaMarcas"
-            :key="marca.id"
-            :value="marca.id"
-          >
+          <option v-for="marca in listaMarcas" :key="marca.id" :value="marca.id">
             {{ marca.nombre }}
           </option>
         </select>
@@ -189,28 +185,16 @@ onMounted(() => {
 
       <div class="grupo-formulario">
         <label for="alqModelo">Modelo</label>
-        <select
-          id="alqModelo"
-          v-model="idModeloSeleccionado"
-          :disabled="!idMarcaSeleccionada"
-        >
+        <select id="alqModelo" v-model="idModeloSeleccionado" :disabled="!idMarcaSeleccionada">
           <option value="" disabled>Selecciona un modelo</option>
-          <option
-            v-for="modelo in modelosFiltrados"
-            :key="modelo.id"
-            :value="modelo.id"
-          >
+          <option v-for="modelo in modelosFiltrados" :key="modelo.id" :value="modelo.id">
             {{ modelo.modelo }}
           </option>
         </select>
       </div>
 
       <div class="grupo-formulario grupo-boton">
-        <button
-          class="boton-primario"
-          :disabled="botonBuscarDeshabilitado"
-          @click="buscarVehiculos"
-        >
+        <button class="boton-primario" :disabled="botonBuscarDeshabilitado" @click="buscarVehiculos">
           Buscar Vehículos
         </button>
       </div>
@@ -221,11 +205,7 @@ onMounted(() => {
         <label for="vehiculo">Vehículo</label>
         <select id="vehiculo" v-model="idVehiculoSeleccionado">
           <option value="" disabled>Selecciona un vehículo</option>
-          <option
-            v-for="vehiculo in vehiculosFiltrados"
-            :key="vehiculo.id"
-            :value="vehiculo.id"
-          >
+          <option v-for="vehiculo in vehiculosFiltrados" :key="vehiculo.id" :value="vehiculo.id">
             {{ obtenerNombreModelo(vehiculo.idModelo) }} — {{ vehiculo.precioDia }}€/día
           </option>
         </select>
@@ -235,11 +215,7 @@ onMounted(() => {
         <label for="cliente">Cliente</label>
         <select id="cliente" v-model="idClienteSeleccionado">
           <option value="" disabled>Selecciona un cliente</option>
-          <option
-            v-for="cliente in listaClientes"
-            :key="cliente.id"
-            :value="cliente.id"
-          >
+          <option v-for="cliente in listaClientes" :key="cliente.id" :value="cliente.id">
             {{ cliente.nombre }} ({{ cliente.dni }})
           </option>
         </select>

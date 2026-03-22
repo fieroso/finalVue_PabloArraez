@@ -1,43 +1,65 @@
 {
   "marcas": [
     {
-    "id": "1",
-    "nombre":"Alfa Romeo",
-    "origen": "Italia",
-    "anioFundacion": 1910
+      "id": "1",
+      "nombre": "Alfa Romeo",
+      "origen": "Italia",
+      "anioFundacion": 1910
+    },
+    {
+      "nombre": "BMW",
+      "origen": "Alemania",
+      "anioFundacion": 1900,
+      "id": "OJNVifxqhXw"
     }
-    
   ],
   "modelos": [
     {
-      "id":"1",
+      "id": "1",
       "idMarca": "1",
       "modelo": "Giulia",
       "extraPorModelo": 12
+    },
+    {
+      "idMarca": "1",
+      "modelo": "ayay",
+      "extraPorModelo": 1,
+      "id": "_wywSn_sChE"
     }
-    
   ],
   "vehiculos": [
     {
-    "id":"1",
-    "idModelo": "1",
-    "precioDia": 98,
-    "puertas": 4,
-    "sillaInfantil": false
+      "id": "1",
+      "idModelo": "1",
+      "precioDia": 98,
+      "puertas": 4,
+      "sillaInfantil": false
     }
   ],
   "clientes": [
-      {
-        "id":"1",
-        "nombre":"Diego Velázquez",
-        "dni": "76523137I",
-        "alquileres":[
-          {
-            "idVehiculo":"1",
-            "numDias":4,
-            "fechaInic": "12/11/2025"
-          }
-        ]
-      }
-  ]
+    {
+      "id": "1",
+      "nombre": "Diego Velázquez",
+      "dni": "76523137I",
+      "alquileres": [
+        {
+          "idVehiculo": "1",
+          "numDias": 4,
+          "fechaInic": "12/11/2025"
+        },
+        {
+          "idVehiculo": "1",
+          "numDias": 6,
+          "fechaInic": "22/12/24"
+        }
+      ]
+    },
+    {
+      "nombre": "Hola",
+      "dni": "e",
+      "alquileres": [],
+      "id": "ZUHmbBpiV-4"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
