@@ -4,7 +4,7 @@
 <template>
   <div class="inicio-contenedor">
     <h1>Renting de Vehículos</h1>
-    <p>Bienvenido a nuestro servicio de renting</p>
+    <p>Bienvenido a nuestro servicio de renting de vehículos</p>
   </div>
 </template>
 

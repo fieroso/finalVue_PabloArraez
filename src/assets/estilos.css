@@ -83,6 +83,24 @@ button:disabled {
   background-color: #2471a3;
 }
 
+.boton-secundario {
+  background-color: #7f8c8d;
+  color: #fff;
+}
+
+.boton-secundario:hover:not(:disabled) {
+  background-color: #6c7a7b;
+}
+
+.boton-peligro {
+  background-color: #c0392b;
+  color: #fff;
+}
+
+.boton-peligro:hover:not(:disabled) {
+  background-color: #a93226;
+}
+
 .grupo-formulario {
   margin-bottom: 18px;
 }
