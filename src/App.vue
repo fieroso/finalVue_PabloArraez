@@ -1,11 +1,24 @@
-<script setup></script>
+<script setup>
+import MenuLateral from './components/MenuLateral.vue'
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <div class="contenedor-principal">
+    <MenuLateral />
+    <main class="contenido-principal">
+      <RouterView />
+    </main>
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.contenedor-principal {
+  display: flex;
+  min-height: 100vh;
+}
+
+.contenido-principal {
+  flex: 1;
+  padding: 30px;
+}
+</style>
