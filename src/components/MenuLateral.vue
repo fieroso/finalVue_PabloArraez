@@ -6,7 +6,7 @@ import { RouterLink } from 'vue-router'
   <nav class="menu-lateral">
     <h2 class="menu-titulo">Renting Vehículos</h2>
     <ul class="menu-lista">
-      <li><RouterLink to="/">Página de inicio</RouterLink></li>
+      <li><RouterLink to="/">Inicio</RouterLink></li>
       <li><RouterLink to="/marcas">Marcas</RouterLink></li>
       <li><RouterLink to="/nueva-marca">Nueva Marca</RouterLink></li>
       <li><RouterLink to="/modelos">Modelos</RouterLink></li>

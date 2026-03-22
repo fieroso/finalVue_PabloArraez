@@ -6,6 +6,7 @@ const listaMarcas = ref([])
 const listaModelos = ref([])
 const listaVehiculos = ref([])
 const idMarcaSeleccionada = ref('')
+const valoresExtraNuevos = ref({})
 
 const cargarDatos = () => {
   Promise.all([
@@ -45,6 +46,36 @@ const modelosDeMarca = computed(() => {
     })
 })
 
+const actualizarExtra = (idModelo) => {
+  const nuevoExtra = Number(valoresExtraNuevos.value[idModelo])
+  if (!nuevoExtra || nuevoExtra <= 0) return
+
+  fetch(`${URL_BASE}/modelos/${idModelo}`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ extraPorModelo: nuevoExtra })
+  })
+    .then(respuesta => {
+      if (respuesta.ok) {
+        return respuesta.json()
+      } else {
+        throw new Error('Error al actualizar el extra')
+      }
+    })
+    .then(modeloActualizado => {
+      const indice = listaModelos.value.findIndex(
+        m => m.id === modeloActualizado.id
+      )
+      if (indice !== -1) {
+        listaModelos.value[indice] = modeloActualizado
+      }
+      delete valoresExtraNuevos.value[idModelo]
+    })
+    .catch(error => {
+      console.error(error.message)
+    })
+}
+
 onMounted(() => {
   cargarDatos()
 })
@@ -83,7 +114,26 @@ onMounted(() => {
           <tr v-for="modelo in modelosDeMarca" :key="modelo.id">
             <td>{{ modelo.modelo }}</td>
             <td>{{ modelo.precioMedioDia.toFixed(2) }}€</td>
-            <td>{{ modelo.extraPorModelo }}€</td>
+            <td>
+              <span v-if="modelo.extraPorModelo && modelo.extraPorModelo > 0">
+                {{ modelo.extraPorModelo }}€
+              </span>
+              <span v-else class="campo-extra-editable">
+                <input
+                  type="number"
+                  min="1"
+                  v-model="valoresExtraNuevos[modelo.id]"
+                  placeholder="Precio extra"
+                  class="input-extra"
+                />
+                <button
+                  class="boton-primario boton-pequeno"
+                  @click="actualizarExtra(modelo.id)"
+                >
+                  Guardar
+                </button>
+              </span>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -94,10 +144,20 @@ onMounted(() => {
 <style scoped>
 .selector-marca-centrado {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .selector-marca-centrado select {
   max-width: 300px;
+}
+
+.campo-extra-editable {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.input-extra {
+  max-width: 120px;
 }
 </style>

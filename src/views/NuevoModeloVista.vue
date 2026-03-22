@@ -41,7 +41,7 @@ const guardarModelo = () => {
   limpiarMensajes()
 
   if (!idMarcaSeleccionada.value || !nombreModelo.value.trim()) {
-    mensajeError.value = 'Selecciona una marca e introduce el nombre del modelo'
+    mensajeError.value = 'La marca y el nombre del modelo son obligatorios'
     return
   }
 

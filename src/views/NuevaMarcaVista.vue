@@ -23,7 +23,7 @@ const guardarMarca = () => {
   limpiarMensajes()
 
   if (!nombre.value.trim() || !anioFundacion.value || !origen.value.trim()) {
-    mensajeError.value = 'Rellena todos los campos'
+    mensajeError.value = 'Todos los campos son obligatorios'
     return
   }
 

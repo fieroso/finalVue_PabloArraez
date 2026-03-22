@@ -102,3 +102,8 @@ button:disabled {
   border-radius: 4px;
   margin-bottom: 15px;
 }
+
+.boton-pequeno {
+  padding: 6px 14px;
+  font-size: 0.85rem;
+}
